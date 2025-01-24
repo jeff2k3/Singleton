@@ -11,15 +11,15 @@ trait SingletonTrait {
         // private constructor.
     }
 
-    private function __clone()
-    {
-        // prevent cloning.
-    }
-
     public function __wakeup()
     {
         // prevent deserialization.
         throw new \Exception("Cannot unserialize a singleton.");
+    }
+
+    private function __clone()
+    {
+        // prevent cloning.
     }
 
     public static function getInstance() : static {
